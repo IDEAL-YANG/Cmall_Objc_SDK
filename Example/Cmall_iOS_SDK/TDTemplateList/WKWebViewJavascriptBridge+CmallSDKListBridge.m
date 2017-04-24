@@ -17,8 +17,7 @@
 - (void)cmall_callGlobalConfig:(WVJBHandler)handler{
     
     [self registerHandler:@"cmall_callGlobalConfig" handler:^(id data, WVJBResponseCallback responseCallback) {
-        // imageServer你的图片服务器域名前缀
-        NSDictionary *params = @{@"imageServer":@"https://image.meitu.com/imgs/extends/" ,@"cmallHost":kTudeSDKApiDomainBaseUrl,@"cmallThumbil":@"?imageView2/2/q/75",@"abbr":@"CN"};
+        NSDictionary *params = @{@"imageServer":[kCmallImageBaseUrl stringByAppendingString:@"/"] ,@"cmallHost":kTudeSDKApiDomainBaseUrl,@"cmallThumbil":@"?imageView2/2/q/75",@"abbr":@"CN"};
         responseCallback(params);
     }];
 }
