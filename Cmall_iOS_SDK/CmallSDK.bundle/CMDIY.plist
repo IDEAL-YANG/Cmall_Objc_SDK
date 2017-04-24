@@ -2,6 +2,44 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CmallEditor</key>
+	<dict>
+		<key>背景</key>
+		<dict>
+			<key>text</key>
+			<string>背景</string>
+			<key>icon</key>
+			<string>diy_toolsbar_back</string>
+		</dict>
+		<key>文字</key>
+		<dict>
+			<key>text</key>
+			<string>文字</string>
+			<key>icon</key>
+			<string>diy_toolsbar_text</string>
+		</dict>
+		<key>蒙版</key>
+		<dict>
+			<key>text</key>
+			<string>蒙版</string>
+			<key>icon</key>
+			<string>diy_toolsbar_mask</string>
+		</dict>
+		<key>素材</key>
+		<dict>
+			<key>text</key>
+			<string>素材</string>
+			<key>icon</key>
+			<string>diy_toolsbar_material</string>
+		</dict>
+		<key>照片</key>
+		<dict>
+			<key>text</key>
+			<string>照片</string>
+			<key>icon</key>
+			<string>diy_toolsbar_img</string>
+		</dict>
+	</dict>
 	<key>color</key>
 	<array>
 		<string>#FF5300</string>

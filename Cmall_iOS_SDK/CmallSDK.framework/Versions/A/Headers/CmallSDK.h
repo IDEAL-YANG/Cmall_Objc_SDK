@@ -5,8 +5,19 @@
 //  Created by Moyun on 2017/3/24.
 //
 //  Copyright (c) 2017 Cmall. All rights reserved.
+//  ----------------------------------------------
+//  -------------current Version : 2.0.0----------
+//  ----------------------------------------------
 
 #import <UIKit/UIKit.h>
+#import "CmallSDKProtocol.h"
+
+
+extern NSString *_Nonnull const kCmallSDKNodeName;
+extern NSString *_Nonnull const kCmallSDKPreviewImage;
+extern NSString *_Nonnull const kCmallSDKUserImage;
+extern NSString *_Nonnull const kCmallSDKPreviewImageUrl;
+extern NSString *_Nonnull const kCmallSDKUserImageUrl;
 
 @interface CmallSDK : NSObject
 
@@ -19,22 +30,8 @@
 + (void)startWithClientId:(NSString*_Nonnull)clientId
              clientSecret:(NSString*_Nonnull)clientSecret;
 
-/**
- SDK初始化方法,clientId和clientSecret在Cmall开放平台申请
- 
- @param clientId 在开放平台注册应用分配的clientId
- @param clientSecret 在开放平台注册应用分配的clientSecret
- @param redirectUri 非必填项，默认：https://www.cmall.com/redirect
- @param nonceString 非必填项，默认：TudeNonce
- */
-+ (void)startWithClientId:(NSString*_Nonnull)clientId
-             clientSecret:(NSString*_Nonnull)clientSecret
-           redirectUri:(NSString*_Nullable)redirectUri
-             nonceString:(NSString*_Nullable)nonceString;
-
 /** 设置是否打印log信息, 默认NO(不打印log).
  @param value 设置为YES,会输出log信息可供调试参考,建议在发布的时候改为No
- @return void.
  */
 + (void)setLogEnabled:(BOOL)value;
 
@@ -47,51 +44,50 @@
  */
 + (void)setImagePrefix:(NSString*_Nonnull)prefix;
 
-/**
- 进入SDK前必须调用该方法，否则将会使用 【测试】 图片体验流程。
-
- @param imageUrl 图片Url,未加前缀的url将会拼接图片前缀 ImagePrefix
-            传入的图片URL必须要有跨域标识.如：
-                 Access-Control-Allow-Headers:X-Requested-With
-                 Access-Control-Allow-Methods:GET,POST,OPTIONS
-                 Access-Control-Allow-Origin:*
- @param imageWidth 图片宽度，非必填
- @param imageHeight 图片高度，非必填
+/** 进入编辑界面
+ @param editorInfo 进入编辑前的预设信息
+ @param curViewController 当前视图控制器
  */
-+ (void)setInitImageUrl:(NSString*_Nonnull)imageUrl imageWidth:(CGFloat)imageWidth imageHeight:(CGFloat)imageHeight;
-
++ (void)showSDKEditorViewControllerWithEditorInfo:(NSDictionary* _Nonnull )editorInfo
+                            currentViewController:(UIViewController*_Nonnull)curViewController;
 /**
- 开启自动套版之旅
+ 进入编辑界面
 
- @param curViewController curViewController
+ @param editorInfo 进入编辑前的预设信息
+ @param curViewController 当前视图控制器
+ @param implementProtocolClass 需要自定义CmallSDKProtocol协议，实现协议里对应方法的接受者
  */
-+ (void)showAutoListViewControllerWithCurrentViewController:(UIViewController*_Nonnull)curViewController;
++ (void)showSDKEditorViewControllerWithEditorInfo:(NSDictionary* _Nonnull )editorInfo
+                            currentViewController:(UIViewController<CmallSDKProtocol>*_Nonnull)curViewController
+                            implmentProtocolClass:(NSObject<CmallSDKProtocol> *_Nullable)implementProtocolClass;
 
 /**
- 点击【立即购买】操作后获取相关数据
+ 点击【完成】操作后获取相关数据
  
- @param callBack uploadImages对应上述给出的例子， modelJson可以在开放平台下单接口里找到相关信息。
-         uploadImages：需要你的app上传到你自己服务器的图片数组，有多个，数据格式如下：
-             {
-                 "preview3dImage":{
-                     "image":image
-                     "uploadKey":"http://demoimage.tude.com/new/diy/tude_14903486860753456.jpe/png"
-                 }
-                 "nodes":[
-                     {
-                         "image":image
-                         "uploadKey":"http://demoimage.tude.com/new/diy/tude_14903486860753456.jpe/png"
-                     },
-                     {
-                         "image":image
-                         "uploadKey":"http://demoimage.tude.com/new/diy/_tude_DDFTD-YTREW-HGRE-UYTRE/L0/01_tude_.jpe/png"
-                     },
-                 ]
-             }
-         modelJson：你下单时需要用的modelJson字段的值，详见开放平台上的下单接口。
-         editFace：第三方忽略次字段。
+ @param callBack 完成回调
+ previewImageBase64StringOfPng 编辑截图的base64字符串，用于返回给H5的3D渲染器【注意，必须是png格式】
+ jsonData 编辑过的字典信息，用于返回给H5
+ isAutoNode 当前编辑节点是否是自动套版节点
+ imageInfo 保存该节点相关的图片信息
  */
-+ (void)setBuyNowCallBack:(void (^_Nullable)(NSDictionary* _Nonnull uploadImages,NSString* _Nonnull modelJson, NSString * _Nullable editFace))callBack;
++ (void)setEditCompletedCallBack:(void (^_Nullable)(NSString* _Nonnull previewImageBase64StringOfPng,NSDictionary* _Nonnull jsonData,BOOL isAutoNode,NSDictionary* _Nonnull imageInfo))callBack;
+
+/**
+ 点击【取消】操作后获取相关数据
+ 
+ @param callBack 取消回调
+ */
++ (void)setEditCancelledCallBack:(void (^_Nullable)())callBack;
+
+/**
+ 第三方触发 点击【完成】操作
+ */
++ (void)editCompletedAction:(id _Nullable )sender;
+
+/**
+ 第三方触发 点击【取消】操作
+ */
++ (void)editCancelledAction:(id _Nullable )sender;
 
 /**
  可自己定义加载样式，如果未实现该方法，默认使用SDK提供的加载样式
@@ -115,12 +111,12 @@
 + (void)setNormalErrorCallBack:(void (^_Nullable)(NSInteger code,NSString* _Nullable errorDesc,NSDictionary * _Nullable errInfo))callBack;
 
 /**
- 清除缓存
+ 清除WKWebView缓存
  */
 + (void)cleanCache;
 
 /**
- 定制页面 提供第三方添加自定义字体， 
+ 定制页面 提供第三方添加自定义字体
  例如：
      添加Daniel.otf,并把它放在mainBundle下
          NSMutableArray *paths = [NSMutableArray array];
@@ -132,5 +128,6 @@
  */
 + (void)registerFontWithFilePaths:(NSArray<NSString*>*_Nonnull)paths;
 
++ (NSDictionary*_Nonnull)signedParamsWithNeedSignParams:(NSDictionary*_Nonnull)needSignParams;
 
 @end

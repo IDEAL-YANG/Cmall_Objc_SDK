@@ -1,0 +1,60 @@
+/*
+ CmallIInternational.strings
+ TudeSDK
+ 
+ Created by Moyun on 2017/4/10.
+ Copyright © 2017年 momo605654602@gmail.com. All rights reserved.
+ */
+
+"Background" = "Background";
+
+"Customizing" = "Customizing";
+
+"Original image" = "Original image";
+
+"no background resources" = "no background resources";
+
+"Reset" = "   Reset";
+
+"Cancel" = "Cancel";
+
+"Done" = "Done";
+
+"No mask" = "No mask";
+
+"Mask" = "Mask";
+
+"Choose a design" = "Choose a design";
+
+"Reloading" = "Reloading";
+
+"Please select a picture" = "Please select a picture";
+
+"Take photo" = "Take photo";
+
+"Photo" = "Photo";
+
+"Promote" = "Promote";
+
+"OK" = "OK";
+
+"MaxsizePromote" = "You select the picture size is greater than 8000*8000 pixels or 20 MB, please cut and try again.";
+
+"ImageDestory" = "The image has been damaged, please re select the photo";
+
+"LocalPhoto" = "Photo";
+
+"Stuff" = "Stuff";
+
+"Text" = "Text";
+
+"Buy" = "Buy";
+
+"Slide up for Details" = "Slide up for Details";
+
+"Cancel Editing" = "Cancel";
+
+"Finish" = "Done";
+
+"Choose existing photo" = "Choose existing photo";
+

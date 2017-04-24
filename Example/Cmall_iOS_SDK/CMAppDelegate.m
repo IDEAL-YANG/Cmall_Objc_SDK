@@ -13,7 +13,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [CmallSDK startWithClientId:@"d83fcd1f-2ad8-41b5-981d-3342548c768e" clientSecret:@"0927150e-64fd-4191-85c2-b9b5c34d5a17"];
+    [CmallSDK startWithClientId:kTudeClientId clientSecret:kTudeClientSecret];
     
     // 开启SDK的日志打印
     [CmallSDK setLogEnabled:true];

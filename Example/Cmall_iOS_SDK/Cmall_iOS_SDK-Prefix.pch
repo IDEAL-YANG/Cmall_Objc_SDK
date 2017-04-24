@@ -13,4 +13,24 @@
 #ifdef __OBJC__
     @import UIKit;
     @import Foundation;
+
+#define kTudeThemFont @"HelveticaNeue"
+
+#define kCmallImageDomainBaseUrl @"https://image.cmall.com"
+#define kCmallImageBaseUrl @"https://image.cmall.com/imgsrv"
+
+#define kTudeSDKDomainBaseUrl @"https://stapimerch.cmall.com"
+
+#define kTudeSDKApiDomainBaseUrl @"https://apimerch.cmall.com"
+
+#define kTudeClientId @"d83fcd1f-2ad8-41b5-981d-3342548c768e"//应用Id
+#define kTudeClientSecret @"0927150e-64fd-4191-85c2-b9b5c34d5a17"//应用 Secret
+
+#import "UIView+CMUITool.h"
+#import "CMMoyunMacros.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <Masonry/Masonry.h>
+#import <Mantle/Mantle.h>
+#import <SDWebImage/SDWebImageManager.h>
+
 #endif

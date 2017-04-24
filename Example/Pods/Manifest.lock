@@ -1,5 +1,25 @@
 PODS:
-  - Cmall_iOS_SDK (0.0.2)
+  - Cmall_iOS_SDK (0.0.1):
+    - Mantle (= 2.1.0)
+    - Masonry (= 1.0.2)
+    - ReactiveCocoa (= 2.5)
+    - SDWebImage (= 3.8.2)
+    - WebViewJavascriptBridge (~> 5.0.7)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - Masonry (1.0.2)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - WebViewJavascriptBridge (5.0.9)
 
 DEPENDENCIES:
   - Cmall_iOS_SDK (from `../`)
@@ -9,7 +29,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Cmall_iOS_SDK: c06b623f7d6f9240a5a1a00488e70b9c34582f8b
+  Cmall_iOS_SDK: 17129e146bf0d69d1b4f13a564b2cedc622bd727
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  WebViewJavascriptBridge: a4390df79bf622fc068dd035c8b5f67590c0ba05
 
 PODFILE CHECKSUM: 3bb035dad426783a02f6071a5df5e086e98f0d15
 

@@ -47,4 +47,11 @@ TODO: Add long description of the pod here.
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
+  s.dependency 'WebViewJavascriptBridge', '~> 5.0.7'
+  s.dependency 'Mantle', '2.1.0'
+  s.dependency 'SDWebImage', '3.8.2'
+  s.dependency 'Masonry', '1.0.2'
+  s.dependency 'ReactiveCocoa', '2.5'
+  
 end

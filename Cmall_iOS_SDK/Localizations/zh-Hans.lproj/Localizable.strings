@@ -1,0 +1,61 @@
+/*
+ CmallIInternational.strings
+ TudeSDK
+ 
+ Created by Moyun on 2017/4/10.
+ Copyright © 2017年 momo605654602@gmail.com. All rights reserved.
+ */
+
+"Background" = "背景";
+
+"Customizing" = "照片定制";
+
+"Original image" = "原图";
+
+"no background resources" = "无背景";
+
+"Reset" = "水平";
+
+"Cancel" = "取消";
+
+"Done" = "确定";
+
+"No mask" = "无蒙版";
+
+"Mask" = "蒙版";
+
+"Choose a design" = "选素材";
+
+"Reloading" = "重新加载";
+
+"Please select a picture" = "选取照片";
+
+"Take photo" = "拍照";
+
+"Photo" = "相册";
+
+"Choose existing photo" = "从本地相册选择";
+
+"Promote" = "提示";
+
+"OK" = "确定";
+
+"MaxsizePromote" = "您选择的图片尺寸大于8000*8000像素或大于20MB，请裁切后再试。";
+
+"ImageDestory" = "该图片已被损坏，请重新选择照片";
+
+"LocalPhoto" = "照片";
+
+"Stuff" = "素材";
+
+"Text" = "文字";
+
+"Buy" = "去购买";
+
+"Slide up for Details" = "上滑查看详情";
+
+"Cancel Editing" = "取消编辑";
+
+"Finish" = "编辑完成";
+
+"Choose existing photo" = "从手机相册选择";
