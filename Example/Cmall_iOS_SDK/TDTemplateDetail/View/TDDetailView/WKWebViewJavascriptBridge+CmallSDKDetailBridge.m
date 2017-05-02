@@ -13,7 +13,7 @@
 
 - (void)cmall_callGlobalConfig:(WVJBHandler)handler{
     [self registerHandler:@"cmall_callGlobalConfig" handler:^(id data, WVJBResponseCallback responseCallback) {
-        NSDictionary *params = @{@"imageServer":[kCmallImageBaseUrl stringByAppendingString:@"/"],@"cmallHost":kTudeSDKApiDomainBaseUrl,@"cmallThumbil":@"?imageView2/2/q/75",@"abbr":@"CN"};
+        NSDictionary *params = @{@"imageServer":[kThirdPartImageBaseUrl stringByAppendingString:@"/"],@"cmallModelPath":[kCmallImageBaseUrl stringByAppendingString:@"/"],@"cmallHost":kTudeSDKApiDomainBaseUrl,@"cmallThumbil":@"?imageView2/2/q/75",@"abbr":@"CN"};
         responseCallback(params);
     }];
 }

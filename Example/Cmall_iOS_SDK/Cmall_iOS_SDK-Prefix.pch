@@ -19,6 +19,8 @@
 #define kCmallImageDomainBaseUrl @"https://image.cmall.com"
 #define kCmallImageBaseUrl @"https://image.cmall.com/imgsrv"
 
+#define kThirdPartImageBaseUrl @"https://image.cmall.com/imgsrv"
+
 #define kTudeSDKDomainBaseUrl @"https://stapimerch.cmall.com"
 
 #define kTudeSDKApiDomainBaseUrl @"https://apimerch.cmall.com"
